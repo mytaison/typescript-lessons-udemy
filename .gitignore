@@ -1,0 +1,6 @@
+node_modules/
+auto_compiler/node_modules/
+ts_compiler/node_modules/
+package-lock.json
+auto_compiler/package-lock.json
+ts_compiler/package-lock.json

@@ -1,0 +1,18 @@
+{
+  "name": "auto_compiler",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "(npx parcel ./index.html) & (npx parcel watch ./index.html)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.9.3"
+  },
+  "devDependencies": {
+    "prettier": "3.0.3"
+  }
+}
