@@ -111,3 +111,23 @@ const editedArtist = {
 function returnString() {
     return "string";
 }
+// Inferring Function Arguments
+function personFunc(name, age) {
+    return {
+        name: name,
+        age: age,
+    };
+}
+// Satisfies Operator
+const color = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [255, 255, 0],
+};
+const colorX = {
+    red: [255, 0, 0],
+    green: "#00ff00",
+    blue: [255, 255, 0],
+};
+const redComponent = colorX.red[0];
+const greenValue = colorX.green.toUpperCase();

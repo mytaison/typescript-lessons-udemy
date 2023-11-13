@@ -239,3 +239,45 @@ type typeFour = ArrayElementType<{ name: string }>;
 function returnString() {
   return "string";
 }
+type FuncReturnType<T> = T extends () => infer R ? R : T;
+type newType = FuncReturnType<typeof returnString>;
+
+// Inferring Function Arguments
+function personFunc(name: string, age: number) {
+  return {
+    name: name,
+    age: age,
+  };
+}
+type FirstArgumentOfAnyFunction<T> = T extends (
+  first: infer FirstArg,
+  ...args: any[]
+) => any
+  ? FirstArg
+  : never;
+type FirstArgument = FirstArgumentOfAnyFunction<typeof personFunc>;
+type SecondArgumentOfAnyFunction<T> = T extends (
+  first: any,
+  second: infer SecondArg,
+  ...args: any[]
+) => any
+  ? SecondArg
+  : never;
+type SecondArgument = SecondArgumentOfAnyFunction<typeof personFunc>;
+
+// Satisfies Operator
+const color = {
+  red: [255, 0, 0],
+  green: "#00ff00",
+  blue: [255, 255, 0],
+};
+// properties can have wrong spell, but typescript will not show error, to deal with it,
+type Properties = "red" | "green" | "blue";
+type RGB = [red: number, green: number, blue: number];
+const colorX = {
+  red: [255, 0, 0],
+  green: "#00ff00",
+  blue: [255, 255, 0],
+} satisfies Record<Properties, RGB | string>;
+const redComponent = colorX.red[0];
+const greenValue = colorX.green.toUpperCase();
